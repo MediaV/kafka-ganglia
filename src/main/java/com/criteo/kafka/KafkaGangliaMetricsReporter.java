@@ -73,7 +73,8 @@ public class KafkaGangliaMetricsReporter implements KafkaMetricsReporter,
             gangliaHost = props.getString("kafka.ganglia.metrics.host", GANGLIA_DEFAULT_HOST);
             gangliaPort = props.getInt("kafka.ganglia.metrics.port", GANGLIA_DEFAULT_PORT);
             gangliaGroupPrefix = props.getString("kafka.ganglia.metrics.group", GANGLIA_DEFAULT_PREFIX);
-            String regex = props.getString("kafka.ganglia.metrics.exclude.regex", null);
+            String regex = props.getString("kafka.ganglia.metrics.include.regex", null);
+            System.out.println("**************regex is " + regex);
             if (regex != null) {
             	predicate = new RegexMetricPredicate(regex);
             }
